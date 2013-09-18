@@ -115,6 +115,22 @@ module Phantomjs
       end
     end
 
+    class LinuxArm < Platform
+      class << self
+        def usable?
+          host_os.linux?('linux') and architecture.include?('arm')
+        end
+
+        def platform
+          'armv7l-linux-eabihf'
+        end
+
+        def package
+          ''
+        end
+      end
+    end
+
     class OsX < Platform
       class << self
         def useable?
